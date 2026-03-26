@@ -13,7 +13,9 @@ function useIsClient() {
 }
 
 export default function CartButton() {
-  const totalCount = useCartStore((s) => s.totalCount)
+  const totalCount = useCartStore((s) =>
+    s.items.reduce((sum, i) => sum + i.quantity, 0)
+  )
   const isClient = useIsClient()
 
   return (
@@ -22,9 +24,9 @@ export default function CartButton() {
       className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition relative"
     >
       Корзина
-      {isClient && totalCount() > 0 && (
+      {isClient && totalCount > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-          {totalCount()}
+          {totalCount}
         </span>
       )}
     </Link>
