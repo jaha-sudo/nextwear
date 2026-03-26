@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: Props) {
           <p className="text-sm text-gray-500">{product.categories?.name}</p>
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="text-gray-600">{product.description}</p>
-          <p className="text-2xl font-bold">{product.price.toLocaleString()} ₽</p>
+          <p className="text-2xl font-bold">{product.price.toLocaleString()} $</p>
           <AddToCartButton product={product} />
         </div>
 

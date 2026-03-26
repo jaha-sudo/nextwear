@@ -51,7 +51,7 @@ export default function CartPage() {
               <p className="font-semibold">{item.product.name}</p>
               <p className="text-sm text-gray-500">Размер: {item.size}</p>
               <p className="font-bold mt-1">
-                {(item.product.price * item.quantity).toLocaleString()} ₽
+                {(item.product.price * item.quantity).toLocaleString()} $
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function CartPage() {
       <div className="border rounded-2xl p-6 flex items-center justify-between">
         <div>
           <p className="text-gray-500">Итого</p>
-          <p className="text-3xl font-bold">{totalPrice().toLocaleString()} ₽</p>
+          <p className="text-3xl font-bold">{totalPrice().toLocaleString()} $</p>
         </div>
         <Link
           href="/checkout"
