@@ -23,6 +23,7 @@ export default async function Home() {
                 fill
                 sizes='192px'
                 className="object-cover group-hover:scale-105 transition"
+                loading="eager"
               />
             </div>
             <div className="p-4">
