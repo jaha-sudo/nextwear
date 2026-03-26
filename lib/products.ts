@@ -1,4 +1,4 @@
-import { supabase } from "./supabase";
+import { createServerSupabaseClient } from "./supabase-server";
 import { Product } from "@/types";
 
 type ProductFilters = {
@@ -9,6 +9,8 @@ type ProductFilters = {
 export async function getProducts(
   filters: ProductFilters = {},
 ): Promise<Product[]> {
+  const supabase = await createServerSupabaseClient();
+
   let query = supabase
     .from("products")
     .select("*, categories(*)")
@@ -24,12 +26,13 @@ export async function getProducts(
   }
 
   const { data, error } = await query;
-
   if (error) throw new Error(error.message);
   return data || [];
 }
 
 export async function getCategories() {
+  const supabase = await createServerSupabaseClient();
+
   const { data, error } = await supabase.from("categories").select("*");
 
   if (error) throw new Error(error.message);
@@ -37,6 +40,8 @@ export async function getCategories() {
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
+  const supabase = await createServerSupabaseClient();
+
   const { data, error } = await supabase
     .from("products")
     .select("*, categories(*)")
