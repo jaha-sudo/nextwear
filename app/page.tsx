@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
-  const products = await getProducts()
+  const { products } = await getProducts({ page: 1 })
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
@@ -21,9 +21,8 @@ export default async function Home() {
                 src={product.image_url}
                 alt={product.name}
                 fill
-                sizes='192px'
+                sizes="(max-width: 640px) 100vw, 25vw"
                 className="object-cover group-hover:scale-105 transition"
-                loading="eager"
               />
             </div>
             <div className="p-4">
