@@ -43,6 +43,7 @@ export default async function CatalogPage({ searchParams }: Props) {
                       src={product.image_url}
                       alt={product.name}
                       fill
+                      sizes='192px'
                       className="object-cover group-hover:scale-105 transition"
                     />
                   </div>

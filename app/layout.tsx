@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import Link from 'next/link'
 import './globals.css'
+import CartButton from '@/components/CartButton'
 
 const geist = Geist({ subsets: ['latin'] })
 
@@ -32,12 +33,7 @@ export default function RootLayout({
               <Link href="/account" className="hover:text-gray-500 transition">
                 Аккаунт
               </Link>
-              <Link
-                href="/cart"
-                className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition"
-              >
-                Корзина
-              </Link>
+              <CartButton />
             </nav>
           </div>
         </header>

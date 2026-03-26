@@ -1,4 +1,5 @@
 import { getProductById } from '@/lib/products'
+import AddToCartButton from '@/components/AddToCartButton'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -22,6 +23,7 @@ export default async function ProductPage({ params }: Props) {
             src={product.image_url}
             alt={product.name}
             fill
+            sizes='384px'
             className="object-cover"
           />
         </div>
@@ -32,26 +34,7 @@ export default async function ProductPage({ params }: Props) {
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="text-gray-600">{product.description}</p>
           <p className="text-2xl font-bold">{product.price.toLocaleString()} ₽</p>
-
-          {/* Размеры */}
-          <div>
-            <p className="font-semibold mb-2">Размер:</p>
-            <div className="flex gap-2 flex-wrap">
-              {product.sizes.map((size) => (
-                <button
-                  key={size}
-                  className="border rounded-lg px-4 py-2 hover:border-black transition"
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Кнопка */}
-          <button className="mt-4 bg-black text-white rounded-xl py-4 text-lg font-semibold hover:bg-gray-800 transition">
-            Добавить в корзину
-          </button>
+          <AddToCartButton product={product} />
         </div>
 
       </div>
