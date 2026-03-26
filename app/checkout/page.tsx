@@ -2,14 +2,12 @@
 
 import { useCartStore } from '@/store/cartStore'
 import { createOrder } from '@/lib/order-actions'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCartStore()
-  const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 

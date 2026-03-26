@@ -1,5 +1,5 @@
+import ClearCart from '@/app/checkout/success/ClearCart'
 import Link from 'next/link'
-import ClearCart from './ClearCart'
 
 type Props = {
   searchParams: Promise<{ orderId?: string }>
