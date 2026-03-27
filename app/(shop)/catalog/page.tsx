@@ -6,6 +6,11 @@ type Props = {
   searchParams: Promise<{ category?: string; search?: string }>
 }
 
+export const metadata = {
+  title: 'Каталог',
+  description: 'Весь ассортимент NextWear — кроссовки, куртки, футболки, джинсы и аксессуары.',
+}
+
 export const dynamic = 'force-dynamic'
 
 export default async function CatalogPage({ searchParams }: Props) {
