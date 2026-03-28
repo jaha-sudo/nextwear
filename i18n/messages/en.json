@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "catalog": "Catalog",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "home": {
+    "title": "NextWear 👟",
+    "subtitle": "Latest fashion trends"
+  },
+  "catalog": {
+    "title": "Catalog",
+    "search": "Search products...",
+    "category": "Category",
+    "allProducts": "All products",
+    "notFound": "Nothing found 😕"
+  },
+  "product": {
+    "size": "Size",
+    "addToCart": "Add to cart",
+    "added": "✓ Added to cart"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Cart is empty",
+    "goToCatalog": "Go to catalog",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "name": "Full name",
+    "email": "Email",
+    "city": "City",
+    "address": "Address",
+    "postalCode": "Postal code",
+    "submit": "Place order",
+    "submitting": "Processing..."
+  },
+  "success": {
+    "title": "Order placed!",
+    "thanks": "Thank you for your purchase.",
+    "orderNumber": "Order number",
+    "myOrders": "My orders",
+    "continueShopping": "Continue shopping"
+  },
+  "account": {
+    "title": "My account",
+    "email": "Email",
+    "logout": "Sign out",
+    "orders": "Order history",
+    "noOrders": "You have no orders yet",
+    "toCatalog": "Go to catalog"
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "subtitle": "Enter your email and password to sign in or create an account",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in / Sign up"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "goHome": "Go home",
+    "somethingWrong": "Something went wrong",
+    "tryAgain": "Try again"
+  }
+}

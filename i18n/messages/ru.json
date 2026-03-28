@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "catalog": "Каталог",
+    "account": "Аккаунт",
+    "cart": "Корзина"
+  },
+  "home": {
+    "title": "NextWear 👟",
+    "subtitle": "Последние тренды моды"
+  },
+  "catalog": {
+    "title": "Каталог",
+    "search": "Найти товар...",
+    "category": "Категория",
+    "allProducts": "Все товары",
+    "notFound": "Ничего не найдено 😕"
+  },
+  "product": {
+    "size": "Размер",
+    "addToCart": "Добавить в корзину",
+    "added": "✓ Добавлено в корзину"
+  },
+  "cart": {
+    "title": "Корзина",
+    "empty": "Корзина пуста",
+    "goToCatalog": "В каталог",
+    "total": "Итого",
+    "checkout": "Оформить заказ"
+  },
+  "checkout": {
+    "title": "Оформление заказа",
+    "name": "Имя и фамилия",
+    "email": "Email",
+    "city": "Город",
+    "address": "Адрес",
+    "postalCode": "Почтовый индекс",
+    "submit": "Оформить заказ",
+    "submitting": "Подождите..."
+  },
+  "success": {
+    "title": "Заказ оформлен!",
+    "thanks": "Спасибо за покупку.",
+    "orderNumber": "Номер заказа",
+    "myOrders": "Мои заказы",
+    "continueShopping": "Продолжить покупки"
+  },
+  "account": {
+    "title": "Мой аккаунт",
+    "email": "Email",
+    "logout": "Выйти",
+    "orders": "История заказов",
+    "noOrders": "У вас пока нет заказов",
+    "toCatalog": "В каталог"
+  },
+  "auth": {
+    "welcome": "Добро пожаловать",
+    "subtitle": "Введи email и пароль — войдём или создадим аккаунт",
+    "email": "Email",
+    "password": "Пароль",
+    "submit": "Войти / Зарегистрироваться"
+  },
+  "errors": {
+    "notFound": "Страница не найдена",
+    "goHome": "На главную",
+    "somethingWrong": "Что-то пошло не так",
+    "tryAgain": "Попробовать снова"
+  }
+}

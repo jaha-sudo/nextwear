@@ -1,6 +1,10 @@
 'use client'
 
+import { useTranslations } from "next-intl"
+
 export default function GlobalError({ reset }: { reset: () => void }) {
+  const t = useTranslations('errors')
+
   return (
     <main className="max-w-2xl mx-auto px-4 py-24 text-center">
       <p className="text-5xl mb-4">😕</p>
@@ -10,7 +14,7 @@ export default function GlobalError({ reset }: { reset: () => void }) {
         onClick={reset}
         className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
       >
-        Попробовать снова
+        {t('tryAgain')}
       </button>
     </main>
   )

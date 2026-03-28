@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "catalog": "Katalog",
+    "account": "Hasap",
+    "cart": "Sebet"
+  },
+  "home": {
+    "title": "NextWear 👟",
+    "subtitle": "Iň täze moda"
+  },
+  "catalog": {
+    "title": "Katalog",
+    "search": "Haryt gözle...",
+    "category": "Kategoriýa",
+    "allProducts": "Ähli harytlar",
+    "notFound": "Hiç zat tapylmady 😕"
+  },
+  "product": {
+    "size": "Ölçeg",
+    "addToCart": "Sebede goş",
+    "added": "✓ Sebede goşuldy"
+  },
+  "cart": {
+    "title": "Sebet",
+    "empty": "Sebet boş",
+    "goToCatalog": "Kataloga git",
+    "total": "Jemi",
+    "checkout": "Sargyt et"
+  },
+  "checkout": {
+    "title": "Sargyt etmek",
+    "name": "Ady we familiýasy",
+    "email": "Email",
+    "city": "Şäher",
+    "address": "Adres",
+    "postalCode": "Poçta indeksi",
+    "submit": "Sargyt et",
+    "submitting": "Garaşyň..."
+  },
+  "success": {
+    "title": "Sargyt kabul edildi!",
+    "thanks": "Satyn alyşyňyz üçin sag boluň.",
+    "orderNumber": "Sargyt belgisi",
+    "myOrders": "Meniň sargytlarym",
+    "continueShopping": "Söwda dowam et"
+  },
+  "account": {
+    "title": "Meniň hasabym",
+    "email": "Email",
+    "logout": "Çyk",
+    "orders": "Sargyt taryhy",
+    "noOrders": "Heniz sargydyňyz ýok",
+    "toCatalog": "Kataloga git"
+  },
+  "auth": {
+    "welcome": "Hoş geldiňiz",
+    "subtitle": "Email we parol giriziň — girýäris ýa hasap döredýäris",
+    "email": "Email",
+    "password": "Parol",
+    "submit": "Gir / Hasap dör"
+  },
+  "errors": {
+    "notFound": "Sahypa tapylmady",
+    "goHome": "Baş sahypa",
+    "somethingWrong": "Bir zat bolmady 😕",
+    "tryAgain": "Gaýtadan synanyş"
+  }
+}

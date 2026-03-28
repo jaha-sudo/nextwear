@@ -1,17 +1,20 @@
 'use client'
 
 import { signInOrUp } from '@/lib/auth-actions'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 export default function AuthPage() {
   const [loading, setLoading] = useState(false)
+  const t = useTranslations("auth")
+  const tr = useTranslations("checkout")
+
 
   return (
     <main className="max-w-md mx-auto px-4 py-24">
-      <h1 className="text-3xl font-bold mb-2">Добро пожаловать</h1>
+      <h1 className="text-3xl font-bold mb-2">{ }</h1>
       <p className="text-gray-500 mb-8">
-        Введи email и пароль — войдём или создадим аккаунт автоматически
-      </p>
+        {t('subtitle')}</p>
 
       <form
         action={async (formData) => {
@@ -22,7 +25,7 @@ export default function AuthPage() {
         className="flex flex-col gap-4"
       >
         <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
+          <label className="block text-sm font-medium mb-1">{t('email')}</label>
           <input
             name="email"
             type="email"
@@ -32,7 +35,7 @@ export default function AuthPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">Пароль</label>
+          <label className="block text-sm font-medium mb-1">{t('password')}</label>
           <input
             name="password"
             type="password"
@@ -47,7 +50,7 @@ export default function AuthPage() {
           disabled={loading}
           className="bg-black text-white rounded-xl py-3 font-semibold hover:bg-gray-800 transition disabled:opacity-50"
         >
-          {loading ? 'Подождите...' : 'Войти / Зарегистрироваться'}
+          {loading ? tr('submitting') : t('submit')}
         </button>
       </form>
     </main>
