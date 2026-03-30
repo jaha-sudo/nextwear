@@ -29,7 +29,7 @@ export default async function RootLayout({
   const locale = await getLocale() as Locale
   const messages = await getMessages()
 
-  const GA_ID = "G-1HN3PEMC8Y";
+  const GA_ID = "G-Q6V02RPL1Y";
 
   return (
     <html lang={locale}>
@@ -45,7 +45,8 @@ export default async function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             window.gtag = gtag;
             gtag('js', new Date());
-            gtag('config', '${GA_ID}');
+            gtag('config', '${GA_ID}', {
+            debug_mode: true,});
           `}
         </Script>
       </head>
