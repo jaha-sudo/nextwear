@@ -35,7 +35,8 @@
     "address": "Адрес",
     "postalCode": "Почтовый индекс",
     "submit": "Оформить заказ",
-    "submitting": "Подождите..."
+    "submitting": "Подождите...",
+    "checkout": "обязательное поле"
   },
   "success": {
     "title": "Заказ оформлен!",
@@ -50,7 +51,15 @@
     "logout": "Выйти",
     "orders": "История заказов",
     "noOrders": "У вас пока нет заказов",
-    "toCatalog": "В каталог"
+    "toCatalog": "В каталог",
+    "product": "товар",
+    "products": "товара",
+    "checkout": "required field",
+    "pending": "Ожидание",
+    "confirmed": "Подтверждено",
+    "shipped": "Отправлен",
+    "delivered": "Доставлен",
+    "cancelled": "Отменен"
   },
   "auth": {
     "welcome": "Добро пожаловать",

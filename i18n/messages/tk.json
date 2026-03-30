@@ -35,7 +35,8 @@
     "address": "Adres",
     "postalCode": "Poçta indeksi",
     "submit": "Sargyt et",
-    "submitting": "Garaşyň..."
+    "submitting": "Garaşyň...",
+    "checkout": "talap edilýän meýdança"
   },
   "success": {
     "title": "Sargyt kabul edildi!",
@@ -50,7 +51,15 @@
     "logout": "Çyk",
     "orders": "Sargyt taryhy",
     "noOrders": "Heniz sargydyňyz ýok",
-    "toCatalog": "Kataloga git"
+    "toCatalog": "Kataloga git",
+    "product": "haryt",
+    "products": "haryt",
+    "checkout": "required field",
+    "pending": "Garaşylýar",
+    "confirmed": "Tassyklandy",
+    "shipped": "Ugradyldy",
+    "delivered": "Gowşuryldy",
+    "cancelled": "Ýatyryldy"
   },
   "auth": {
     "welcome": "Hoş geldiňiz",

@@ -50,7 +50,15 @@
     "logout": "Sign out",
     "orders": "Order history",
     "noOrders": "You have no orders yet",
-    "toCatalog": "Go to catalog"
+    "toCatalog": "Go to catalog",
+    "product": "product",
+    "products": "products",
+    "checkout": "required field",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
   },
   "auth": {
     "welcome": "Welcome",

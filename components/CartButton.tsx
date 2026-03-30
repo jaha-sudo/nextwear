@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useCartStore } from '@/store/cartStore'
 import { useSyncExternalStore } from 'react'
+import { useTranslations } from 'next-intl'
 
 function useIsClient() {
   return useSyncExternalStore(
@@ -13,6 +14,8 @@ function useIsClient() {
 }
 
 export default function CartButton() {
+  const t = useTranslations('nav')
+
   const totalCount = useCartStore((s) =>
     s.items.reduce((sum, i) => sum + i.quantity, 0)
   )
@@ -23,7 +26,7 @@ export default function CartButton() {
       href="/cart"
       className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition relative"
     >
-      Корзина
+      {t('cart')}
       {isClient && totalCount > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
           {totalCount}

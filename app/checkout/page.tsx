@@ -1,13 +1,16 @@
 'use client'
 
 import { useCartStore } from '@/store/cartStore'
+import { useTranslations } from 'next-intl'
 import { createOrder } from '@/lib/order-actions'
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function CheckoutPage() {
-  const { items, totalPrice, clearCart } = useCartStore()
+  const { items, totalPrice } = useCartStore()
+  const t = useTranslations('checkout')
+  const tCart = useTranslations('cart')
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -15,9 +18,9 @@ export default function CheckoutPage() {
     return (
       <main className="max-w-2xl mx-auto px-4 py-24 text-center">
         <p className="text-5xl mb-4">🛒</p>
-        <h1 className="text-2xl font-bold mb-2">Корзина пуста</h1>
+        <h1 className="text-2xl font-bold mb-2">{tCart('empty')}</h1>
         <Link href="/catalog" className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
-          В каталог
+          {tCart('goToCatalog')}
         </Link>
       </main>
     )
@@ -25,11 +28,11 @@ export default function CheckoutPage() {
 
   function validate(form: FormData) {
     const errs: Record<string, string> = {}
-    if (!form.get('name')) errs.name = 'Введите имя'
-    if (!form.get('email')) errs.email = 'Введите email'
-    if (!form.get('address')) errs.address = 'Введите адрес'
-    if (!form.get('city')) errs.city = 'Введите город'
-    if (!form.get('postalCode')) errs.postalCode = 'Введите индекс'
+    if (!form.get('name')) errs.name = '!'
+    if (!form.get('email')) errs.email = '!'
+    if (!form.get('address')) errs.address = '!'
+    if (!form.get('city')) errs.city = '!'
+    if (!form.get('postalCode')) errs.postalCode = '!'
     return errs
   }
 
@@ -39,7 +42,6 @@ export default function CheckoutPage() {
       setErrors(errs)
       return
     }
-
     setLoading(true)
     try {
       await createOrder({
@@ -58,29 +60,26 @@ export default function CheckoutPage() {
           image_url: i.product.image_url,
         })),
       })
-      clearCart()
     } catch {
       setLoading(false)
     }
   }
 
+  const fields = [
+    { name: 'name', label: t('name'), type: 'text' },
+    { name: 'email', label: t('email'), type: 'email' },
+    { name: 'city', label: t('city'), type: 'text' },
+    { name: 'address', label: t('address'), type: 'text' },
+    { name: 'postalCode', label: t('postalCode'), type: 'text' },
+  ]
+
   return (
     <main className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Оформление заказа</h1>
+      <h1 className="text-3xl font-bold mb-8">{t('title')}</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-        {/* Форма */}
         <form action={handleSubmit} className="flex flex-col gap-4">
-          <h2 className="text-xl font-semibold">Данные доставки</h2>
-
-          {[
-            { name: 'name', label: 'Имя и фамилия', type: 'text' },
-            { name: 'email', label: 'Email', type: 'email' },
-            { name: 'city', label: 'Город', type: 'text' },
-            { name: 'address', label: 'Адрес', type: 'text' },
-            { name: 'postalCode', label: 'Почтовый индекс', type: 'text' },
-          ].map((field) => (
+          {fields.map((field) => (
             <div key={field.name}>
               <label className="block text-sm font-medium mb-1">{field.label}</label>
               <input
@@ -90,7 +89,7 @@ export default function CheckoutPage() {
                   }`}
               />
               {errors[field.name] && (
-                <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
+                <p className="text-red-500 text-sm mt-1">{field.label} —  обязательное поле</p>
               )}
             </div>
           ))}
@@ -100,13 +99,12 @@ export default function CheckoutPage() {
             disabled={loading}
             className="mt-4 bg-black text-white rounded-xl py-4 text-lg font-semibold hover:bg-gray-800 transition disabled:opacity-50"
           >
-            {loading ? 'Оформляем...' : `Оформить заказ · ${totalPrice().toLocaleString()} $`}
+            {loading ? t('submitting') : `${t('submit')} · ${totalPrice().toLocaleString()} $`}
           </button>
         </form>
 
-        {/* Товары */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Ваш заказ</h2>
+          <h2 className="text-xl font-semibold mb-4">{tCart('title')}</h2>
           <div className="flex flex-col gap-3">
             {items.map((item) => (
               <div
@@ -114,26 +112,18 @@ export default function CheckoutPage() {
                 className="flex gap-3 items-center border rounded-xl p-3"
               >
                 <div className="relative w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
-                  <Image
-                    src={item.product.image_url}
-                    alt={item.product.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={item.product.image_url} alt={item.product.name} fill className="object-cover" />
                 </div>
                 <div className="flex-1">
                   <p className="font-medium text-sm">{item.product.name}</p>
-                  <p className="text-xs text-gray-500">Размер: {item.size} · {item.quantity} шт.</p>
+                  <p className="text-xs text-gray-500">{item.size} · {item.quantity}</p>
                 </div>
-                <p className="font-bold text-sm">
-                  {(item.product.price * item.quantity).toLocaleString()} $
-                </p>
+                <p className="font-bold text-sm">{(item.product.price * item.quantity).toLocaleString()} $</p>
               </div>
             ))}
           </div>
-
-          <div className="mt-4 pt-4 border-t flex justify-between items-center">
-            <span className="text-gray-500">Итого</span>
+          <div className="mt-4 pt-4 border-t flex justify-between">
+            <span className="text-gray-500">{tCart('total')}</span>
             <span className="text-2xl font-bold">{totalPrice().toLocaleString()} $</span>
           </div>
         </div>

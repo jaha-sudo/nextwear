@@ -31,7 +31,7 @@ export default async function Home() {
             <div className="p-4">
               <p className="text-sm text-gray-500">{product.categories?.name}</p>
               <h2 className="font-semibold mt-1">{product.name}</h2>
-              <p className="text-lg font-bold mt-2">{product.price.toLocaleString()} ₽</p>
+              <p className="text-lg font-bold mt-2">{product.price.toLocaleString()} $</p>
             </div>
           </Link>
         ))}
